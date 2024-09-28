@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://xgl5jenjlld4"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_x3aa7"]
+[ext_resource type="Shader" path="res://Shaders/glow.gdshader" id="2_a6if6"]
+[ext_resource type="Texture2D" uid="uid://lbdxi2xpnvb" path="res://Sprites/Enemies/Main Ship - Engines - Burst Engine.png" id="3_av7sp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsjcu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmmk1"]
+shader = ExtResource("2_a6if6")
+shader_parameter/size_effect = 3.65
+shader_parameter/speed = 5.535
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+
+[sub_resource type="Curve" id="Curve_rodal"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.021978), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8s7mu"]
+offsets = PackedFloat32Array(0, 0.427083)
+colors = PackedColorArray(0.539863, 1.03481e-06, 2.88785e-07, 1, 1, 1, 1, 1)
+
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+collision_layer = 2
+script = ExtResource("1_x3aa7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hsjcu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vmmk1")
+use_parent_material = true
+position = Vector2(0, 1)
+texture = ExtResource("3_av7sp")
+
+[node name="enemy_explosion" type="CPUParticles2D" parent="."]
+position = Vector2(0, 1)
+emitting = false
+amount = 30
+lifetime = 0.8
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 0.75
+emission_shape = 1
+emission_sphere_radius = 24.22
+gravity = Vector2(0, -5)
+angular_velocity_max = 50.0
+linear_accel_max = 42.93
+radial_accel_max = 66.67
+scale_amount_min = 0.5
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_rodal")
+color_ramp = SubResource("Gradient_8s7mu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered_player"]

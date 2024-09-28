@@ -1,0 +1,138 @@
+[gd_scene load_steps=17 format=3 uid="uid://dhpv6imxck8ee"]
+
+[ext_resource type="Script" path="res://Scripts/spaceship.gd" id="1_j43d0"]
+[ext_resource type="Texture2D" uid="uid://dd5j5f7uibooj" path="res://Sprites/Engine_effects/Main Ship - Engines - Base Engine - Idle.png" id="2_4ucs7"]
+[ext_resource type="Texture2D" uid="uid://4g6qu6lumfjc" path="res://Sprites/Spaceship/Main Ship - Base - Full health.png" id="2_5jpyd"]
+[ext_resource type="Texture2D" uid="uid://c3nh7sj4usxqd" path="res://Sprites/Engine_effects/Main Ship - Engines - Base Engine - Powering.png" id="3_26s8m"]
+[ext_resource type="Texture2D" uid="uid://cfr1h2hcby0vv" path="res://Sprites/Engine/Main Ship - Engines - Base Engine.png" id="4_d0lk1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qefrt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu0en"]
+atlas = ExtResource("2_4ucs7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egqct"]
+atlas = ExtResource("2_4ucs7")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gf66"]
+atlas = ExtResource("2_4ucs7")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gi0x"]
+atlas = ExtResource("3_26s8m")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v66u4"]
+atlas = ExtResource("3_26s8m")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjw02"]
+atlas = ExtResource("3_26s8m")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dwxj"]
+atlas = ExtResource("3_26s8m")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkodh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu0en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egqct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gf66")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gi0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v66u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjw02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dwxj")
+}],
+"loop": true,
+"name": &"speeding",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8j5q"]
+size = Vector2(30, 24)
+
+[sub_resource type="Gradient" id="Gradient_7jk10"]
+offsets = PackedFloat32Array(0, 0.146667, 0.273333, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.839216, 0.152941, 0.556863, 1, 0.67451, 0.313726, 0.921569, 1, 0.513541, 0, 0.0104689, 1)
+
+[node name="Spaceship" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_j43d0")
+
+[node name="Engine" type="Node2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="engine_effects" type="AnimatedSprite2D" parent="Engine"]
+material = SubResource("ShaderMaterial_qefrt")
+position = Vector2(0, 7)
+sprite_frames = SubResource("SpriteFrames_gkodh")
+animation = &"speeding"
+autoplay = "idle"
+
+[node name="engine_sprite" type="Sprite2D" parent="Engine"]
+position = Vector2(0, 7)
+texture = ExtResource("4_d0lk1")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="MainShip-Base-FullHealth" type="Sprite2D" parent="Body"]
+texture = ExtResource("2_5jpyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_k8j5q")
+
+[node name="Shooting_point" type="Marker2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(-0.859058, 13.9072)
+
+[node name="Shooting_timer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="Damage_particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 500
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+linear_accel_max = 44.44
+tangential_accel_min = -36.36
+tangential_accel_max = 18.18
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_7jk10")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[connection signal="timeout" from="Shooting_timer" to="." method="_on_shooting_timer_timeout"]

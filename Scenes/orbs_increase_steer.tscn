@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://nc3h4wrxc1mi"]
+
+[ext_resource type="Script" path="res://Scripts/orbs_increase_steer.gd" id="1_gdfbe"]
+[ext_resource type="Shader" path="res://Shaders/start_scene.gdshader" id="2_uyfvu"]
+[ext_resource type="Texture2D" uid="uid://krgi3pia8a7c" path="res://Sprites/Orbs/Icon29.png" id="3_cw50k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5oxb6"]
+radius = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0uxu"]
+shader = ExtResource("2_uyfvu")
+shader_parameter/size_effect = 1.0
+shader_parameter/speed = 6.0
+shader_parameter/highlight_strength = 0.2
+shader_parameter/color_mode_toggle = true
+shader_parameter/is_horizontal = true
+
+[node name="Orbs_steer" type="Area2D"]
+scale = Vector2(1.3, 1.3)
+script = ExtResource("1_gdfbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5oxb6")
+
+[node name="Sprite2D_steer" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_w0uxu")
+texture = ExtResource("3_cw50k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

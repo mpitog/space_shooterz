@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtpmsa7wistfa"]
+
+[ext_resource type="Texture2D" uid="uid://dwcyhmrac8qni" path="res://Sprites/Engine/Main Ship - Engines - Big Pulse Engine.png" id="2_nmrrd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_exc44"]
+radius = 8.0
+height = 24.0
+
+[node name="Gun_back_part" type="Area2D"]
+
+[node name="gun_back_part" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("2_nmrrd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_exc44")

@@ -1,0 +1,148 @@
+[gd_scene load_steps=17 format=3 uid="uid://82rv1hgx2c1v"]
+
+[ext_resource type="Script" path="res://Scripts/start_scene.gd" id="1_hh1n5"]
+[ext_resource type="Shader" path="res://Shaders/start_scene.gdshader" id="2_gs4cm"]
+[ext_resource type="Shader" path="res://Shaders/starfield.gdshader" id="2_jebao"]
+[ext_resource type="Texture2D" uid="uid://e2nmp5uhsc6v" path="res://Sprites/Spaceship/Main Ship - Base - Damaged.png" id="2_jqt4s"]
+[ext_resource type="Texture2D" uid="uid://bh3emn0weiu5w" path="res://Sprites/BG and other elements/space__1_-removebg-preview.png" id="3_ispn2"]
+[ext_resource type="StyleBox" uid="uid://clopo6aby08gw" path="res://Materials/start_scene_button_hover.tres" id="3_vylb3"]
+[ext_resource type="StyleBox" uid="uid://d02fxkqq00kc2" path="res://Materials/start_scene_button.tres" id="4_ttm0i"]
+[ext_resource type="Shader" path="res://Shaders/glow.gdshader" id="8_ewhm0"]
+
+[sub_resource type="Gradient" id="Gradient_625ej"]
+offsets = PackedFloat32Array(0.06, 0.286667, 1)
+colors = PackedColorArray(0.852567, 0.000612801, 0.859173, 1, 1, 0.313726, 0.0352941, 1, 0.673155, 0.769903, 7.70092e-07, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5ax2"]
+shader = ExtResource("2_jebao")
+shader_parameter/zoom = 1.0
+shader_parameter/NUM_LAYERS = 4.75
+shader_parameter/brightness1 = 0.4
+shader_parameter/brightness2 = 0.5
+shader_parameter/brightness3 = 0.5
+shader_parameter/twinkle = 1.0
+shader_parameter/star_rays = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/color1 = Vector3(0.498, 0.588, 1.128)
+shader_parameter/color2 = Vector3(0.303, 0.388, 0.273)
+shader_parameter/color3 = Vector3(1.763, 0.938, 0.787)
+shader_parameter/color4 = Vector3(-2.982, 1.818, 1.948)
+shader_parameter/adjust_queue = Vector2(116.065, 455.171)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1162b"]
+shader = ExtResource("2_gs4cm")
+shader_parameter/size_effect = 0.2
+shader_parameter/speed = 1.0
+shader_parameter/highlight_strength = 0.6
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+
+[sub_resource type="Gradient" id="Gradient_vcw1c"]
+offsets = PackedFloat32Array(0, 0.483333, 0.983333)
+colors = PackedColorArray(0, 1, 0, 1, 0.490196, 0, 1, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cf1py"]
+gradient = SubResource("Gradient_vcw1c")
+
+[sub_resource type="Gradient" id="Gradient_o5ddt"]
+offsets = PackedFloat32Array(0, 0.461111, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0.929412, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r507y"]
+gradient = SubResource("Gradient_o5ddt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pv5g3"]
+shader = ExtResource("8_ewhm0")
+shader_parameter/size_effect = 1.0
+shader_parameter/speed = 2.0
+shader_parameter/highlight_strength = 2.5
+shader_parameter/color_mode_toggle = true
+shader_parameter/is_horizontal = false
+shader_parameter/vertical_gradient = SubResource("GradientTexture2D_r507y")
+shader_parameter/color_gradient = SubResource("GradientTexture2D_cf1py")
+
+[node name="start_scene" type="CanvasLayer"]
+script = ExtResource("1_hh1n5")
+metadata/_edit_vertical_guides_ = [208.0]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="CPUParticles2Dfast" type="CPUParticles2D" parent="Background"]
+z_index = 1
+position = Vector2(200, 66)
+scale = Vector2(1.8, 1.8)
+amount = 800
+lifetime = 14.0
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(0, 10)
+angle_min = -101.9
+angle_max = 421.8
+scale_amount_min = 0.1
+scale_amount_max = 2.2
+color = Color(1, 1, 1, 0.466667)
+color_ramp = SubResource("Gradient_625ej")
+hue_variation_max = 0.51
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+z_index = 2
+position = Vector2(205, -32)
+rotation = 3.14159
+scale = Vector2(179, -17)
+amount = 400
+lifetime = 15.0
+emission_shape = 1
+emission_sphere_radius = 1.58
+gravity = Vector2(0, 40)
+
+[node name="Panel" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_s5ax2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Space" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1162b")
+position = Vector2(216, 456)
+texture = ExtResource("3_ispn2")
+
+[node name="StartGame" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = 168.0
+offset_right = 3265.0
+offset_bottom = 906.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.08, 0.08)
+theme_override_font_sizes/font_size = 512
+theme_override_styles/hover = ExtResource("3_vylb3")
+theme_override_styles/normal = ExtResource("4_ttm0i")
+text = "Start Game"
+
+[node name="MainShip-Base-Damaged" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(200, 280)
+scale = Vector2(5.56, 5.56)
+texture = ExtResource("2_jqt4s")
+
+[node name="high_score_label" type="Label" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_pv5g3")
+offset_left = 152.0
+offset_top = 568.0
+offset_right = 2319.0
+offset_bottom = 1114.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 400
+text = "High Score:"
+
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]

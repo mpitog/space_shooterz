@@ -1,0 +1,182 @@
+fc8a56933c4b1c8d796fdb8f7a9f9475
+::res://::1726998642
+default_bus_layout.tres::AudioBusLayout::2300719315037521375::1726665225::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1726299059::0::1::::<><>::
+icon.svg::CompressedTexture2D::7711386467523290605::1724941086::1726168851::1::::<><>::
+::res://addons/::1726298572
+::res://addons/virtual_joystick/::1726298572
+plugin.cfg::TextFile::-1::1726298572::0::1::::<><>::
+virtual_joystick.gd::GDScript::-1::1726298572::0::1::::VirtualJoystick<>Control<>::
+virtual_joystick_icon.png::CompressedTexture2D::260911808592511340::1726298572::1726298572::1::::<><>::
+virtual_joystick_instantiator.gd::GDScript::-1::1726298572::0::1::::<>Control<>::
+virtual_joystick_plugin.gd::GDScript::-1::1726298572::0::1::::<>EditorPlugin<>::
+virtual_joystick_scene.tscn::PackedScene::8038149555967335895::1726298572::0::1::::<><>::res://addons/virtual_joystick/virtual_joystick.gd<>uid://bm30au8mjfc2f::::res://addons/virtual_joystick/textures/joystick_base_outline.png<>uid://dt13r06u87fib::::res://addons/virtual_joystick/textures/joystick_tip_arrows.png
+::res://addons/virtual_joystick/previews/::1726298573
+CoverPreview.svg::CompressedTexture2D::3359866376460934511::1726298572::1726298572::1::::<><>::
+joystick_icon.png::CompressedTexture2D::7173472766437088166::1726298572::1726298572::1::::<><>::
+Logo.svg::CompressedTexture2D::2474469749057242724::1726298572::1726298572::1::::<><>::
+ShowcasePreview.png::CompressedTexture2D::3471126196820725619::1726298572::1726298573::1::::<><>::
+::res://addons/virtual_joystick/test/::1726298572
+player.gd::GDScript::-1::1726298572::0::1::::<>Sprite2D<>::
+test.tscn::PackedScene::3566301953465693758::1726298572::0::1::::<><>::uid://dmr0fcamx7t56::::res://addons/virtual_joystick/virtual_joystick_scene.tscn<>uid://kq1h264n0gxs::::res://icon.svg<>res://addons/virtual_joystick/test/player.gd
+::res://addons/virtual_joystick/textures/::1726298572
+joystick_base_outline.png::CompressedTexture2D::3288008411285325467::1726298572::1726298572::1::::<><>::
+joystick_tip.png::CompressedTexture2D::3132432681801126628::1726298572::1726298572::1::::<><>::
+joystick_tip_arrows.png::CompressedTexture2D::8548255698028078709::1726298572::1726298572::1::::<><>::
+::res://Audio/::1726168851
+mixkit-game-whip-shot-1512.wav::AudioStreamWAV::5002119895794452122::1725980792::1726168851::1::::<><>::
+mixkit-mystwrious-bass-pulse-2298.wav::AudioStreamWAV::5389152575477481816::1725981816::1726168851::1::::<><>::
+mixkit-short-laser-gun-shot-1670.wav::AudioStreamWAV::2031828868760723951::1725980634::1726168851::1::::<><>::
+mixkit-space-coin-win-notification-271.wav::AudioStreamWAV::8574932158394301951::1725981618::1726168851::1::::<><>::
+SkyFire (Title Screen).ogg::AudioStreamOggVorbis::1304609341140747140::1725983868::1726168851::1::::<><>::
+::res://Materials/::1726290028
+start_scene_button.tres::StyleBoxFlat::8970066550325113183::1726290028::0::1::::<><>::
+start_scene_button_hover.tres::StyleBoxFlat::5574757320269943630::1726290028::0::1::::<><>::
+::res://Plugins/::1726168833
+::res://Scenes/::1726320295
+boss.tscn::PackedScene::6685256980246112859::1726320294::0::1::::<><>::uid://bac6lwifps8ty::::res://Sprites/Enemies/boss_ph.png<>res://Scripts/boss_1_phobos.gd<>uid://b62x4y8cmoh6c::::res://Sprites/Main Ship - Shields/PNGs/Main Ship - Shields - Front and Side Shield.png
+bullet.tscn::PackedScene::5957742504043723186::1726320294::0::1::::<><>::uid://b08wuyhuyhhbr::::res://Sprites/Weapons/base_bullet.png<>res://Scripts/bullet.gd
+bullet_back.tscn::PackedScene::2860715543844707894::1726320294::0::1::::<><>::res://Scripts/bullet_back.gd<>uid://b08wuyhuyhhbr::::res://Sprites/Weapons/base_bullet.png<>res://Shaders/start_scene.gdshader
+bullet_enemy.tscn::PackedScene::6941960848520407866::1726320294::0::1::::<><>::res://Scripts/bullet_enemy.gd<>uid://b08wuyhuyhhbr::::res://Sprites/Weapons/base_bullet.png
+enemy.tscn::PackedScene::1627451610429183159::1726320294::0::1::::<><>::res://Scripts/enemy.gd<>res://Shaders/glow.gdshader<>uid://lbdxi2xpnvb::::res://Sprites/Enemies/Main Ship - Engines - Burst Engine.png
+game_over.tscn::PackedScene::4084991428277018731::1725540872::0::1::::<><>::res://Scripts/game_over.gd<>res://Shaders/game_over.gdshader<>uid://clopo6aby08gw::::res://Materials/start_scene_button_hover.tres<>uid://d02fxkqq00kc2::::res://Materials/start_scene_button.tres<>uid://e2nmp5uhsc6v::::res://Sprites/Spaceship/Main Ship - Base - Damaged.png
+gun_back_part.tscn::PackedScene::8524576545161041734::1726320294::0::1::::<><>::uid://dwcyhmrac8qni::::res://Sprites/Engine/Main Ship - Engines - Big Pulse Engine.png
+main.tscn::PackedScene::5076083103898920570::1726320293::0::1::::<><>::res://Scripts/main.gd<>res://Shaders/glow.gdshader<>uid://c4blpsxnuri75::::res://Sprites/BG and other elements/lower_bg.png<>res://Shaders/random.gdshader<>uid://dhpv6imxck8ee::::res://Scenes/player_spaceship.tscn<>res://Shaders/player_spaceship.gdshader<>uid://bnx65yxqb4n1w::::res://Scenes/orbs.tscn<>uid://xgl5jenjlld4::::res://Scenes/enemy.tscn<>uid://byg2hhcn5x8mx::::res://Scenes/game_over.tscn<>res://Scripts/level_increased.gd<>uid://bx2rpaeh6lfo7::::res://Sprites/BG and other elements/pause.png<>uid://cq48fb10txf2a::::res://Scenes/bullet.tscn<>uid://4nenqikykjm3::::res://Scenes/orbs_increase_attack.tscn<>uid://bg00tjrnesuuo::::res://Scenes/bullet_back.tscn<>uid://b6dskgrg68ggy::::res://Sprites/Spaceship/Chest Close 01 - Copy.png<>uid://dmr0fcamx7t56::::res://addons/virtual_joystick/virtual_joystick_scene.tscn<>res://Scripts/audio_manager.gd<>uid://cveuukbtkbj5h::::res://Sprites/BG and other elements/play_button.png<>uid://c550c0tlwgghe::::res://Scenes/bullet_enemy.tscn<>uid://st7ywm7bea0c::::res://Audio/SkyFire (Title Screen).ogg<>uid://dtmx8drtnagjy::::res://Sprites/BG and other elements/restart_game_button.png<>uid://2iw0i6qpnwfa::::res://Sprites/BG and other elements/sound_settings.png<>uid://delvdfxbeku2g::::res://Sprites/BG and other elements/back_icon.png
+orbs.tscn::PackedScene::3348293436744168054::1725561854::0::1::::<><>::res://Scripts/orbs.gd<>res://Shaders/start_scene.gdshader<>uid://cxnwtcmc1a5j8::::res://Sprites/Orbs/Icon9.png
+orbs_increase_attack.tscn::PackedScene::2062580312816413544::1726320295::0::1::::<><>::res://Scripts/orbs_increase_attack.gd<>res://Shaders/start_scene.gdshader<>uid://cnxc7kcrmcmrg::::res://Sprites/Orbs/Icon1.png
+orbs_increase_range.tscn::PackedScene::4574919587684012810::1726320295::0::1::::<><>::res://Scripts/orbs_increase_range.gd<>res://Shaders/start_scene.gdshader<>uid://ekculj6nv261::::res://Sprites/Orbs/Icon2.png
+orbs_increase_speed.tscn::PackedScene::840335657097586380::1726320295::0::1::::<><>::res://Scripts/orbs_increase_att_speed.gd<>res://Shaders/start_scene.gdshader<>uid://cqyongg4tvaiy::::res://Sprites/Orbs/Icon16.png
+orbs_increase_steer.tscn::PackedScene::918297857123434152::1726320294::0::1::::<><>::res://Scripts/orbs_increase_steer.gd<>res://Shaders/start_scene.gdshader<>uid://krgi3pia8a7c::::res://Sprites/Orbs/Icon29.png
+player_spaceship.tscn::PackedScene::7682880479088146912::1726320293::0::1::::<><>::res://Scripts/spaceship.gd<>uid://dd5j5f7uibooj::::res://Sprites/Engine_effects/Main Ship - Engines - Base Engine - Idle.png<>uid://4g6qu6lumfjc::::res://Sprites/Spaceship/Main Ship - Base - Full health.png<>uid://c3nh7sj4usxqd::::res://Sprites/Engine_effects/Main Ship - Engines - Base Engine - Powering.png<>uid://cfr1h2hcby0vv::::res://Sprites/Engine/Main Ship - Engines - Base Engine.png<>uid://dwcyhmrac8qni::::res://Sprites/Engine/Main Ship - Engines - Big Pulse Engine.png<>uid://bwlguhttqvpf4::::res://Sprites/Weapons/Main Ship - Weapons - Auto Cannon.png<>uid://37h6o4b0krv8::::res://Audio/mixkit-short-laser-gun-shot-1670.wav<>uid://cdjcgisvinw3c::::res://Audio/mixkit-game-whip-shot-1512.wav
+start_scene.tscn::PackedScene::2373041106688862681::1726320293::0::1::::<><>::res://Scripts/start_scene.gd<>res://Shaders/start_scene.gdshader<>res://Shaders/starfield.gdshader<>uid://e2nmp5uhsc6v::::res://Sprites/Spaceship/Main Ship - Base - Damaged.png<>uid://bh3emn0weiu5w::::res://Sprites/BG and other elements/space__1_-removebg-preview.png<>uid://clopo6aby08gw::::res://Materials/start_scene_button_hover.tres<>uid://d02fxkqq00kc2::::res://Materials/start_scene_button.tres<>res://Shaders/glow.gdshader
+::res://Scripts/::1726296174
+audio_manager.gd::GDScript::-1::1726253488::0::1::::<>Node<>::
+boss_1_phobos.gd::GDScript::-1::1726295541::0::1::::Boss_Phobos<>Area2D<>::
+bullet.gd::GDScript::-1::1725792958::0::1::::BasicBullet<>Area2D<>::
+bullet_back.gd::GDScript::-1::1726060658::0::1::::BasicBulletBack<>Area2D<>::
+bullet_enemy.gd::GDScript::-1::1725805946::0::1::::Enemy_BUllet<>Area2D<>::
+enemy.gd::GDScript::-1::1725984940::0::1::::Base_enemy<>Area2D<>::
+game_over.gd::GDScript::-1::1726290028::0::1::::<>CanvasLayer<>::
+level_increased.gd::GDScript::-1::1726250739::0::1::::<>Label<>::
+main.gd::GDScript::-1::1726294170::0::1::::<>Node2D<>::
+orbs.gd::GDScript::-1::1725793120::0::1::::Health_Orb<>Area2D<>::
+orbs_increase_attack.gd::GDScript::-1::1725892418::0::1::::Increase_Attack_Power_Orb<>Area2D<>::
+orbs_increase_att_speed.gd::GDScript::-1::1726290028::0::1::::Increase_Attack_Speed_Orb<>Area2D<>::
+orbs_increase_range.gd::GDScript::-1::1726290028::0::1::::Increase_Range_Orb<>Area2D<>::
+orbs_increase_steer.gd::GDScript::-1::1725893172::0::1::::Increase_Steering_Orb<>Area2D<>::
+parallax_background.gd::GDScript::-1::1726296174::0::1::::<>ParallaxBackground<>::
+save_data.gd::GDScript::-1::1726296174::0::1::::SaveData<>Resource<>::
+spaceship.gd::GDScript::-1::1726252375::0::1::::<>CharacterBody2D<>::
+start_scene.gd::GDScript::-1::1725792816::0::1::::<>CanvasLayer<>::
+::res://Scripts/auto_loads/::1726168834
+global.gd::GDScript::-1::1725792814::0::1::::<>Node<>::
+::res://Shaders/::1726728221
+background-planet-effects.gdshader::Shader::-1::1726728221::0::1::::<><>::
+bluelines.gdshader::Shader::-1::1726728221::0::1::::<><>::
+fireworks.gdshader::Shader::-1::1726728221::0::1::::<><>::
+game_over.gdshader::Shader::-1::1726728221::0::1::::<><>::
+glow.gdshader::Shader::-1::1726728221::0::1::::<><>::
+healthbar.gdshader::Shader::-1::1726728221::0::1::::<><>::
+new_shader_material.gdshader::Shader::-1::1726728221::0::1::::<><>::
+new_shader_material.tres::ShaderMaterial::8066366374951525549::1724942794::0::1::::<><>::res://Shaders/new_shader_material.gdshader
+player_spaceship.gdshader::Shader::-1::1726728221::0::1::::<><>::
+random.gdshader::Shader::-1::1726728221::0::1::::<><>::
+shadow.gdshader::Shader::-1::1726728221::0::1::::<><>::
+starfield.gdshader::Shader::-1::1726728221::0::1::::<><>::
+start_scene.gdshader::Shader::-1::1726728221::0::1::::<><>::
+::res://Sprites/::1726246952
+::res://Sprites/BG and other elements/::1726295498
+back_icon.png::CompressedTexture2D::7464006293354350812::1726248982::1726248982::1::::<><>::
+lower_bg.png::CompressedTexture2D::6811077866041075494::1725459936::1726168851::1::::<><>::
+near-trees.png::CompressedTexture2D::8944571079932807112::1724941400::1726168851::1::::<><>::
+pause.png::CompressedTexture2D::4057561269052193848::1726248982::1726248982::1::::<><>::
+play_button.png::CompressedTexture2D::6256315178189541487::1726248982::1726248982::1::::<><>::
+restart_game_button.png::CompressedTexture2D::8519078219995504210::1726248982::1726248982::1::::<><>::
+sound_settings.png::CompressedTexture2D::1912994687771123610::1726248982::1726248982::1::::<><>::
+space.png::CompressedTexture2D::3337279071182697780::1725126292::1726168851::1::::<><>::
+space__1_-removebg-preview.png::CompressedTexture2D::2935810186199851618::1725130494::1726168851::1::::<><>::
+::res://Sprites/Enemies/::1726168851
+boss_ph.png::CompressedTexture2D::2392452477830041794::1725635024::1726168851::1::::<><>::
+Main Ship - Engines - Burst Engine.png::CompressedTexture2D::22775451322724807::1725546620::1726168851::1::::<><>::
+::res://Sprites/Engine/::1726168851
+Main Ship - Engines - Base Engine.png::CompressedTexture2D::5160472578801907475::1725003512::1726168851::1::::<><>::
+Main Ship - Engines - Big Pulse Engine.png::CompressedTexture2D::8709015731553730026::1725003512::1726168851::1::::<><>::
+Main Ship - Engines - Burst Engine.png::CompressedTexture2D::386936894866785237::1725003512::1726168851::1::::<><>::
+Main Ship - Engines - Supercharged Engine.png::CompressedTexture2D::1936421504746268133::1725003512::1726168851::1::::<><>::
+::res://Sprites/Engine_effects/::1726168851
+Main Ship - Engines - Base Engine - Idle.png::CompressedTexture2D::7432360254337185829::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Base Engine - Powering.png::CompressedTexture2D::6765449025076838831::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Base Engine - Spritesheet.png::CompressedTexture2D::7399150032646869092::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Big Pulse Engine - Idle.png::CompressedTexture2D::3635182184107236103::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Big Pulse Engine - Powering.png::CompressedTexture2D::5033049104078173103::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Big Pulse Engine - Spritesheet.png::CompressedTexture2D::9138955432867958327::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Burst Engine - Idle.png::CompressedTexture2D::1590394762470117590::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Burst Engine - Powering.png::CompressedTexture2D::7689956499662689805::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Burst Engine - Spritesheet.png::CompressedTexture2D::2957611592117854300::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Supercharged Engine - Idle.png::CompressedTexture2D::1461572175440158578::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Supercharged Engine - Powering.png::CompressedTexture2D::8325038362661039284::1725003656::1726168851::1::::<><>::
+Main Ship - Engines - Supercharged Engine - Spritesheet.png::CompressedTexture2D::1976073916622012624::1725003656::1726168851::1::::<><>::
+::res://Sprites/Main Ship - Shields/::1726295522
+::res://Sprites/Main Ship - Shields/PNGs/::1726168851
+Main Ship - Shields - Front and Side Shield.png::CompressedTexture2D::4619462626335005036::1725693104::1726168851::1::::<><>::
+Main Ship - Shields - Front Shield.png::CompressedTexture2D::7413553299093100571::1725693104::1726168851::1::::<><>::
+Main Ship - Shields - Invincibility Shield.png::CompressedTexture2D::2957698087295886119::1725693104::1726168851::1::::<><>::
+Main Ship - Shields - Round Shield.png::CompressedTexture2D::3170033723331121758::1725693104::1726168851::1::::<><>::
+::res://Sprites/Orbs/::1726168851
+Icon1.png::CompressedTexture2D::5732956131526129128::1725187782::1726168851::1::::<><>::
+Icon2.png::CompressedTexture2D::301556895043177660::1725187782::1726168851::1::::<><>::
+Icon3.png::CompressedTexture2D::3946530206034228577::1725187782::1726168851::1::::<><>::
+Icon4.png::CompressedTexture2D::5991719538447418924::1725187782::1726168851::1::::<><>::
+Icon5.png::CompressedTexture2D::7366398541913699402::1725187782::1726168851::1::::<><>::
+Icon6.png::CompressedTexture2D::8838828633887410874::1725187782::1726168851::1::::<><>::
+Icon7.png::CompressedTexture2D::3961128080444125136::1725187782::1726168851::1::::<><>::
+Icon8.png::CompressedTexture2D::8363786140056431245::1725187782::1726168851::1::::<><>::
+Icon9.png::CompressedTexture2D::6415391509498783147::1725187782::1726168851::1::::<><>::
+Icon10.png::CompressedTexture2D::2378686565087264224::1725187782::1726168851::1::::<><>::
+Icon11.png::CompressedTexture2D::1098160676963389955::1725187782::1726168851::1::::<><>::
+Icon12.png::CompressedTexture2D::5466695099305768153::1725187782::1726168851::1::::<><>::
+Icon13.png::CompressedTexture2D::4722390154675024722::1725187782::1726168851::1::::<><>::
+Icon14.png::CompressedTexture2D::3174533394171479038::1725187782::1726168851::1::::<><>::
+Icon15.png::CompressedTexture2D::7625715630681816331::1725187782::1726168851::1::::<><>::
+Icon16.png::CompressedTexture2D::5946281510664419744::1725187782::1726168851::1::::<><>::
+Icon17.png::CompressedTexture2D::8146997181833162042::1725187782::1726168851::1::::<><>::
+Icon18.png::CompressedTexture2D::8689986565029482455::1725187782::1726168851::1::::<><>::
+Icon19.png::CompressedTexture2D::4536265300219389475::1725187782::1726168851::1::::<><>::
+Icon20.png::CompressedTexture2D::6050628143478383608::1725187782::1726168851::1::::<><>::
+Icon21.png::CompressedTexture2D::8651443166306738965::1725187782::1726168851::1::::<><>::
+Icon22.png::CompressedTexture2D::8055431427573177379::1725187782::1726168851::1::::<><>::
+Icon23.png::CompressedTexture2D::982325494676988387::1725187782::1726168851::1::::<><>::
+Icon24.png::CompressedTexture2D::2694500143011996403::1725187782::1726168851::1::::<><>::
+Icon25.png::CompressedTexture2D::7038673340680061139::1725187782::1726168851::1::::<><>::
+Icon26.png::CompressedTexture2D::2897938788009273135::1725187782::1726168851::1::::<><>::
+Icon27.png::CompressedTexture2D::9131765131657302279::1725187782::1726168851::1::::<><>::
+Icon28.png::CompressedTexture2D::6892393543967138994::1725187782::1726168851::1::::<><>::
+Icon29.png::CompressedTexture2D::737362940697829770::1725187782::1726168851::1::::<><>::
+Icon30.png::CompressedTexture2D::4695839310515101367::1725187782::1726168851::1::::<><>::
+Icon31.png::CompressedTexture2D::5956086008399801940::1725187782::1726168851::1::::<><>::
+Icon32.png::CompressedTexture2D::5196298357547688149::1725187782::1726168851::1::::<><>::
+Icon33.png::CompressedTexture2D::8229421782108463297::1725187782::1726168851::1::::<><>::
+Icon34.png::CompressedTexture2D::3897184293677726021::1725187782::1726168851::1::::<><>::
+Icon35.png::CompressedTexture2D::8419167606086119277::1725187782::1726168851::1::::<><>::
+Icon36.png::CompressedTexture2D::5042721714451314012::1725187782::1726168851::1::::<><>::
+Icon37.png::CompressedTexture2D::4161568574937278324::1725187782::1726168851::1::::<><>::
+Icon38.png::CompressedTexture2D::5984730745825278704::1725187782::1726168851::1::::<><>::
+Icon39.png::CompressedTexture2D::2340609860773447988::1725187782::1726168851::1::::<><>::
+Icon40.png::CompressedTexture2D::8681567709694988529::1725187782::1726168851::1::::<><>::
+Icon41.png::CompressedTexture2D::7022560595535970556::1725187782::1726168851::1::::<><>::
+Icon42.png::CompressedTexture2D::2224711108643844762::1725187782::1726168851::1::::<><>::
+Icon43.png::CompressedTexture2D::2757654972930903900::1725187782::1726168851::1::::<><>::
+Icon44.png::CompressedTexture2D::187854217192902744::1725187782::1726168851::1::::<><>::
+Icon45.png::CompressedTexture2D::6648888277823275047::1725187782::1726168851::1::::<><>::
+Icon46.png::CompressedTexture2D::798927097188698962::1725187782::1726168851::1::::<><>::
+Icon47.png::CompressedTexture2D::4586829339119394884::1725187782::1726168851::1::::<><>::
+Icon48.png::CompressedTexture2D::1504276572635581400::1725187782::1726168851::1::::<><>::
+::res://Sprites/Spaceship/::1726168851
+Chest Close 01 - Copy.png::CompressedTexture2D::4569579075260248692::1725633034::1726168851::1::::<><>::
+Main Ship - Base - Damaged.png::CompressedTexture2D::337305159457724603::1725001908::1726168851::1::::<><>::
+Main Ship - Base - Full health.png::CompressedTexture2D::2049774630388470408::1725001286::1726168851::1::::<><>::
+Main Ship - Base - Slight damage.png::CompressedTexture2D::1413429709114602183::1725001908::1726168851::1::::<><>::
+Main Ship - Base - Very damaged.png::CompressedTexture2D::7892618659142350234::1725001908::1726168851::1::::<><>::
+::res://Sprites/Weapons/::1726168851
+base_bullet.png::CompressedTexture2D::4210639002561941575::1725007596::1726168851::1::::<><>::
+Main Ship - Weapons - Auto Cannon.png::CompressedTexture2D::3953683814759400011::1726061310::1726168851::1::::<><>::

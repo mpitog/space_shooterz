@@ -1,0 +1,425 @@
+[gd_scene load_steps=23 format=3 uid="uid://cek5l2ijewv51"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_rf4ga"]
+[ext_resource type="Shader" path="res://Shaders/glow.gdshader" id="2_7d85r"]
+[ext_resource type="Texture2D" uid="uid://c4blpsxnuri75" path="res://Sprites/BG and other elements/lower_bg.png" id="2_aq0ny"]
+[ext_resource type="Shader" path="res://Shaders/random.gdshader" id="2_b6lg5"]
+[ext_resource type="PackedScene" uid="uid://dhpv6imxck8ee" path="res://Scenes/player_spaceship.tscn" id="3_8r7bl"]
+[ext_resource type="Shader" path="res://Shaders/player_spaceship.gdshader" id="3_hyjab"]
+[ext_resource type="PackedScene" uid="uid://bnx65yxqb4n1w" path="res://Scenes/orbs.tscn" id="5_48jh0"]
+[ext_resource type="PackedScene" uid="uid://xgl5jenjlld4" path="res://Scenes/enemy.tscn" id="5_76tcn"]
+[ext_resource type="PackedScene" uid="uid://byg2hhcn5x8mx" path="res://Scenes/game_over.tscn" id="6_6fini"]
+[ext_resource type="Script" path="res://Scripts/level_increased.gd" id="7_8027i"]
+[ext_resource type="Texture2D" uid="uid://bx2rpaeh6lfo7" path="res://Sprites/BG and other elements/pause.png" id="7_qbu51"]
+[ext_resource type="Texture2D" uid="uid://d1t4uvan100f1" path="res://Sprites/BG and other elements/play-button.png" id="8_jy1qb"]
+
+[sub_resource type="Gradient" id="Gradient_4de21"]
+offsets = PackedFloat32Array(0.06, 0.286667, 1)
+colors = PackedColorArray(0.852567, 0.000612801, 0.859173, 1, 1, 0.313726, 0.0352941, 1, 0.673155, 0.769903, 7.70092e-07, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xy38h"]
+shader = ExtResource("2_7d85r")
+shader_parameter/size_effect = 1.0
+shader_parameter/speed = 15.0
+shader_parameter/highlight_strength = 4.0
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5mr6"]
+shader = ExtResource("2_b6lg5")
+shader_parameter/colour1 = Color(0, 1, 1, 0.239216)
+shader_parameter/colour2 = Color(0.0588235, 0.0156863, 0.00392157, 0)
+shader_parameter/gradientType = 5
+shader_parameter/proportion = 4.719
+shader_parameter/noise = 0.05
+shader_parameter/clipAlpha = false
+shader_parameter/clipThreshold = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0lp1r"]
+shader = ExtResource("2_b6lg5")
+shader_parameter/colour1 = Color(0, 0.298039, 0, 1)
+shader_parameter/colour2 = null
+shader_parameter/gradientType = 5
+shader_parameter/proportion = 3.458
+shader_parameter/noise = 0.0
+shader_parameter/clipAlpha = true
+shader_parameter/clipThreshold = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sarrt"]
+shader = ExtResource("3_hyjab")
+shader_parameter/color = Vector4(0, 0, 0, 1)
+shader_parameter/scale = 1.1
+shader_parameter/disp = Vector2(0, 0)
+shader_parameter/speed = 0.4
+shader_parameter/nucleus = 5.0
+shader_parameter/contrast = 0.5
+shader_parameter/line = 5.0
+shader_parameter/layer1 = 1.0
+shader_parameter/layer2 = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wd6y4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b8mr1"]
+distance = -247.0
+
+[sub_resource type="Curve2D" id="Curve2D_piwl1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 259.088, -649.133, 0, 0, 0, 0, 72.3427, -600.876, 0, 0, 0, 0, 45.4245, -583.752, 72.0814, 76.0859, -72.0814, -76.0859, -56, -528, 0, 0, 0, 0, -91.1222, -578.936, 58.0655, 33.371, -58.0655, -33.371, -146, -630, 66.0746, 2.66968, -66.0746, -2.66968, -242, -590, 0, 0, 0, 0, -440.785, -660.029)
+}
+point_count = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxl2a"]
+bg_color = Color(1, 0.347899, 0.230554, 0.109804)
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7he1"]
+bg_color = Color(0.882574, 0, 0.0956522, 1)
+border_color = Color(0.640167, 0, 0.141031, 1)
+shadow_color = Color(0.294118, 0, 0, 0.254902)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_rf4ga")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="CPUParticles2Dfast" type="CPUParticles2D" parent="Background"]
+z_index = 1
+position = Vector2(200, 66)
+scale = Vector2(1.8, 1.8)
+amount = 800
+lifetime = 14.0
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(0, 10)
+angle_min = -101.9
+angle_max = 421.8
+scale_amount_min = 0.1
+scale_amount_max = 2.2
+color = Color(1, 1, 1, 0.466667)
+color_ramp = SubResource("Gradient_4de21")
+hue_variation_max = 0.51
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+z_index = 2
+position = Vector2(205, -32)
+rotation = 3.14159
+scale = Vector2(179, -17)
+amount = 400
+lifetime = 15.0
+emission_shape = 1
+emission_sphere_radius = 1.58
+gravity = Vector2(0, 40)
+
+[node name="LowerBg" type="Sprite2D" parent="Background"]
+z_index = 1
+material = SubResource("ShaderMaterial_xy38h")
+use_parent_material = true
+position = Vector2(207.5, 883.48)
+scale = Vector2(0.603198, 0.962831)
+texture = ExtResource("2_aq0ny")
+
+[node name="ColorRect_background" type="ColorRect" parent="Background"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 414.03
+offset_bottom = 896.41
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Background/ColorRect_background"]
+material = SubResource("ShaderMaterial_q5mr6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 98.0
+offset_top = 6.0
+offset_right = 512.03
+offset_bottom = 902.41
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.254423
+scale = Vector2(0.125653, 0.125653)
+
+[node name="ColorRect3" type="ColorRect" parent="Background/ColorRect_background"]
+material = SubResource("ShaderMaterial_q5mr6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 399.0
+offset_top = 557.0
+offset_right = 813.03
+offset_bottom = 1453.41
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.72156
+scale = Vector2(0.125653, 0.125653)
+
+[node name="ColorRect4" type="ColorRect" parent="Background/ColorRect_background"]
+material = SubResource("ShaderMaterial_0lp1r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = 416.0
+offset_right = 382.03
+offset_bottom = 1312.41
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 4.09282
+scale = Vector2(0.125653, 0.125653)
+
+[node name="ColorRect5" type="ColorRect" parent="Background/ColorRect_background"]
+material = SubResource("ShaderMaterial_0lp1r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 272.0
+offset_top = 704.0
+offset_right = 686.03
+offset_bottom = 1600.41
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 5.99084
+scale = Vector2(0.125653, 0.125653)
+
+[node name="lower_rect" type="ColorRect" parent="Background/ColorRect_background"]
+top_level = true
+z_index = 1
+material = SubResource("ShaderMaterial_sarrt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 870.0
+offset_right = -339.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-0.441104, 0.0760307)
+color = Color(0.599863, 0.611874, 0.617012, 1)
+
+[node name="lower_rect5" type="ColorRect" parent="Background/ColorRect_background"]
+top_level = true
+z_index = 1
+material = SubResource("ShaderMaterial_sarrt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 389.0
+offset_top = 892.0
+offset_right = 46.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-0.441104, 0.0760307)
+color = Color(0.599863, 0.611874, 0.617012, 1)
+
+[node name="lower_rect3" type="ColorRect" parent="Background/ColorRect_background"]
+top_level = true
+z_index = 1
+material = SubResource("ShaderMaterial_sarrt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 274.0
+offset_top = 870.0
+offset_right = -120.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-0.441104, 0.0760307)
+color = Color(0.599863, 0.611874, 0.617012, 1)
+
+[node name="lower_rect4" type="ColorRect" parent="Background/ColorRect_background"]
+top_level = true
+z_index = 1
+material = SubResource("ShaderMaterial_sarrt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 274.0
+offset_top = 870.0
+offset_right = -120.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-0.441104, 0.0760307)
+color = Color(0.599863, 0.611874, 0.617012, 1)
+
+[node name="lower_rect2" type="ColorRect" parent="Background/ColorRect_background"]
+top_level = true
+z_index = 1
+material = SubResource("ShaderMaterial_sarrt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 885.0
+offset_right = -196.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-0.441104, 0.0760307)
+color = Color(0.599863, 0.611874, 0.617012, 1)
+
+[node name="global_boundaries" type="RigidBody2D" parent="."]
+collision_layer = 2
+mass = 0.001
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="global_boundaries"]
+position = Vector2(197, 888)
+shape = SubResource("WorldBoundaryShape2D_wd6y4")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="global_boundaries"]
+position = Vector2(251, 518)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_b8mr1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="global_boundaries"]
+position = Vector2(207, 252)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_b8mr1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="global_boundaries"]
+position = Vector2(163, 514)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_b8mr1")
+
+[node name="Enemies_mob" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies_mob" instance=ExtResource("5_76tcn")]
+visible = false
+position = Vector2(88, 48)
+
+[node name="label_timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="difficulty_inc_timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="Timer_mob_spawn" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Enemy_Path2D" type="Path2D" parent="Paths"]
+position = Vector2(251.019, 309)
+scale = Vector2(0.45151, 0.642396)
+curve = SubResource("Curve2D_piwl1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Enemy_Path2D"]
+unique_name_in_owner = true
+position = Vector2(259.088, -649.133)
+rotation = 2.88871
+
+[node name="Spaceship" parent="." instance=ExtResource("3_8r7bl")]
+position = Vector2(192, 1016)
+scale = Vector2(2.68, 2.68)
+
+[node name="Orbs" type="Node2D" parent="."]
+
+[node name="Orbs" parent="Orbs" instance=ExtResource("5_48jh0")]
+visible = false
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="GUI"]
+unique_name_in_owner = true
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 59.0
+offset_bottom = 39.0
+text = "Score"
+
+[node name="Playtime" type="Label" parent="GUI"]
+unique_name_in_owner = true
+offset_left = 16.0
+offset_top = 42.0
+offset_right = 84.0
+offset_bottom = 65.0
+text = "Playtime"
+
+[node name="level_increased" type="Label" parent="GUI"]
+visible = false
+offset_left = 14.0
+offset_top = 848.0
+offset_right = 6543.0
+offset_bottom = 1257.0
+scale = Vector2(0.06, 0.06)
+theme_override_font_sizes/font_size = 300
+text = "Difficulty Increased"
+script = ExtResource("7_8027i")
+
+[node name="health_prog_bar" type="ProgressBar" parent="GUI"]
+offset_left = 1.0
+offset_top = 889.0
+offset_right = 413.0
+offset_bottom = 896.0
+theme_override_styles/background = SubResource("StyleBoxFlat_yxl2a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e7he1")
+step = 0.0
+value = 60.0
+show_percentage = false
+
+[node name="Game_over" parent="." instance=ExtResource("6_6fini")]
+visible = false
+
+[node name="Game_paused" type="Node2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="pause_button" type="Button" parent="Game_paused"]
+offset_left = 371.0
+offset_top = 8.0
+offset_right = 891.0
+offset_bottom = 528.0
+scale = Vector2(0.07, 0.07)
+icon = ExtResource("7_qbu51")
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="Game_paused"]
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 415.0
+offset_bottom = 896.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.886275, 0.886275, 0.886275, 0.435294)
+metadata/_edit_group_ = true
+
+[node name="resume_button" type="Button" parent="Game_paused/ColorRect"]
+process_mode = 2
+layout_mode = 0
+offset_left = 170.0
+offset_top = 478.0
+offset_right = 690.0
+offset_bottom = 998.0
+scale = Vector2(0.150002, 0.150002)
+icon = ExtResource("8_jy1qb")
+flat = true
+
+[connection signal="timeout" from="difficulty_inc_timer" to="." method="_on_difficulty_inc_timer_timeout"]
+[connection signal="timeout" from="Timer_mob_spawn" to="." method="_on_timer_mob_spawn_timeout"]
+[connection signal="visibility_changed" from="Game_over" to="." method="_on_game_over_visibility_changed"]
+[connection signal="pressed" from="Game_paused/pause_button" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Game_paused/ColorRect/resume_button" to="." method="_on_resume_button_pressed"]

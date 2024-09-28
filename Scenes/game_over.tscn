@@ -1,0 +1,187 @@
+[gd_scene load_steps=8 format=3 uid="uid://byg2hhcn5x8mx"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_7xllw"]
+[ext_resource type="Shader" path="res://Shaders/game_over.gdshader" id="2_l5isp"]
+[ext_resource type="StyleBox" uid="uid://clopo6aby08gw" path="res://Materials/start_scene_button_hover.tres" id="2_vtk1i"]
+[ext_resource type="StyleBox" uid="uid://d02fxkqq00kc2" path="res://Materials/start_scene_button.tres" id="3_i600s"]
+[ext_resource type="Texture2D" uid="uid://e2nmp5uhsc6v" path="res://Sprites/Spaceship/Main Ship - Base - Damaged.png" id="4_7ofxu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vlqq3"]
+shader = ExtResource("2_l5isp")
+shader_parameter/OCTAVE = 110
+shader_parameter/timescale = 0.5
+shader_parameter/CLOUD1_COL = Vector4(0.41, 0.64, 0.78, 0.4)
+shader_parameter/CLOUD2_COL = Vector4(0.99, 0.79, 0.46, 0.2)
+shader_parameter/CLOUD3_COL = Vector4(0.81, 0.31, 0.59, 1)
+shader_parameter/CLOUD4_COL = Vector4(0.27, 0.15, 0.33, 1)
+shader_parameter/SPACE = Vector4(0.09, 0.06, 0.28, 0.3)
+shader_parameter/zoomScale = 5.0
+shader_parameter/size = 5.0
+shader_parameter/starscale = 10.0
+shader_parameter/prob = 0.98
+
+[sub_resource type="Gradient" id="Gradient_wgqu4"]
+offsets = PackedFloat32Array(0.06, 0.480769, 1)
+colors = PackedColorArray(0.852567, 0.000612801, 0.859173, 1, 1, 0.313726, 0.0352941, 1, 0.67451, 0.768627, 0, 0)
+
+[node name="Game_over" type="CanvasLayer"]
+script = ExtResource("1_7xllw")
+
+[node name="Panel" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -80.0
+offset_right = 8073.0
+offset_bottom = 2644.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 1200
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="highscore_bg" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vlqq3")
+offset_top = 704.0
+offset_right = 25.0
+offset_bottom = 729.0
+scale = Vector2(16.84, 4.81143)
+
+[node name="Retry_game" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = 168.0
+offset_right = 2709.0
+offset_bottom = 906.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.08, 0.08)
+theme_override_font_sizes/font_size = 512
+theme_override_styles/hover = ExtResource("2_vtk1i")
+theme_override_styles/normal = ExtResource("3_i600s")
+text = "Retry"
+
+[node name="CPUParticles2Dfast" type="CPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(192, 280)
+scale = Vector2(1.8, 1.8)
+amount = 2000
+lifetime = 14.0
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(0, 1)
+orbit_velocity_max = 1.0
+radial_accel_max = 50.0
+angle_min = -101.9
+angle_max = 421.8
+scale_amount_min = 0.1
+scale_amount_max = 2.2
+color = Color(1, 1, 1, 0.466667)
+color_ramp = SubResource("Gradient_wgqu4")
+hue_variation_max = 0.51
+
+[node name="MainShip-Base-Damaged" type="Sprite2D" parent="."]
+position = Vector2(200, 280)
+rotation = 2.66636
+scale = Vector2(5.56, 5.56)
+texture = ExtResource("4_7ofxu")
+
+[node name="score_label_game_over_scene" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = 40.0
+offset_right = 3953.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 300
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="high_score_label_game_over_scene2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = 88.0
+offset_right = 3953.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 200
+text = "High Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="high_score_CPUParticles2Dfast2" type="CPUParticles2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(192, 704)
+amount = 50
+lifetime = 2.0
+explosiveness = 0.74
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(1, -8)
+spread = 23.0
+gravity = Vector2(0, 400)
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+radial_accel_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 15.0
+color = Color(1, 1, 1, 0.466667)
+color_ramp = SubResource("Gradient_wgqu4")
+hue_variation_max = 0.51
+
+[node name="new_high_score" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = 241.0
+offset_right = 8093.0
+offset_bottom = 2965.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 800
+text = "New High Score!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Retry_game" to="." method="_on_retry_game_pressed"]

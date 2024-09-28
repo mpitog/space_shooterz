@@ -1,0 +1,284 @@
+[gd_scene load_steps=33 format=3 uid="uid://dhpv6imxck8ee"]
+
+[ext_resource type="Script" path="res://Scripts/spaceship.gd" id="1_j43d0"]
+[ext_resource type="Texture2D" uid="uid://dd5j5f7uibooj" path="res://Sprites/Engine_effects/Main Ship - Engines - Base Engine - Idle.png" id="2_4ucs7"]
+[ext_resource type="Texture2D" uid="uid://4g6qu6lumfjc" path="res://Sprites/Spaceship/Main Ship - Base - Full health.png" id="2_5jpyd"]
+[ext_resource type="Texture2D" uid="uid://c3nh7sj4usxqd" path="res://Sprites/Engine_effects/Main Ship - Engines - Base Engine - Powering.png" id="3_26s8m"]
+[ext_resource type="Texture2D" uid="uid://cfr1h2hcby0vv" path="res://Sprites/Engine/Main Ship - Engines - Base Engine.png" id="4_d0lk1"]
+[ext_resource type="Texture2D" uid="uid://dwcyhmrac8qni" path="res://Sprites/Engine/Main Ship - Engines - Big Pulse Engine.png" id="6_gb6cs"]
+[ext_resource type="Texture2D" uid="uid://bwlguhttqvpf4" path="res://Sprites/Weapons/Main Ship - Weapons - Auto Cannon.png" id="6_uync3"]
+[ext_resource type="AudioStream" uid="uid://37h6o4b0krv8" path="res://Audio/mixkit-short-laser-gun-shot-1670.wav" id="7_36n3f"]
+[ext_resource type="AudioStream" uid="uid://cdjcgisvinw3c" path="res://Audio/mixkit-game-whip-shot-1512.wav" id="8_yyute"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qefrt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu0en"]
+atlas = ExtResource("2_4ucs7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egqct"]
+atlas = ExtResource("2_4ucs7")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gf66"]
+atlas = ExtResource("2_4ucs7")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gi0x"]
+atlas = ExtResource("3_26s8m")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v66u4"]
+atlas = ExtResource("3_26s8m")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjw02"]
+atlas = ExtResource("3_26s8m")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dwxj"]
+atlas = ExtResource("3_26s8m")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkodh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu0en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egqct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gf66")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gi0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v66u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjw02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dwxj")
+}],
+"loop": true,
+"name": &"speeding",
+"speed": 15.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l1w7"]
+atlas = ExtResource("6_uync3")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1toww"]
+atlas = ExtResource("6_uync3")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvucv"]
+atlas = ExtResource("6_uync3")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2886j"]
+atlas = ExtResource("6_uync3")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyngj"]
+atlas = ExtResource("6_uync3")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4j5u"]
+atlas = ExtResource("6_uync3")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4spx"]
+atlas = ExtResource("6_uync3")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojg6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l1w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1toww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvucv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2886j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyngj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4j5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4spx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydtjd"]
+size = Vector2(25, 9.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j1hwi"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8j5q"]
+size = Vector2(30, 24)
+
+[sub_resource type="Gradient" id="Gradient_7jk10"]
+offsets = PackedFloat32Array(0, 0.146667, 0.273333, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.839216, 0.152941, 0.556863, 1, 0.67451, 0.313726, 0.921569, 1, 0.513541, 0, 0.0104689, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r85rv"]
+bg_color = Color(1, 0.347899, 0.230554, 0.109804)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwqdh"]
+bg_color = Color(0.882574, 0, 0.0956522, 1)
+border_color = Color(0.640167, 0, 0.141031, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.294118, 0, 0, 0.254902)
+
+[node name="Spaceship" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_j43d0")
+
+[node name="Engine" type="Node2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="engine_effects" type="AnimatedSprite2D" parent="Engine"]
+material = SubResource("ShaderMaterial_qefrt")
+position = Vector2(0, 7)
+sprite_frames = SubResource("SpriteFrames_gkodh")
+animation = &"speeding"
+autoplay = "idle"
+
+[node name="engine_sprite" type="Sprite2D" parent="Engine"]
+position = Vector2(0, 7)
+texture = ExtResource("4_d0lk1")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="MainShip-Base-FullHealth" type="Sprite2D" parent="Body"]
+texture = ExtResource("2_5jpyd")
+
+[node name="BodyParts" type="Node2D" parent="."]
+
+[node name="multi_bullets_front" type="Area2D" parent="BodyParts"]
+visible = false
+z_index = 1
+
+[node name="multi_bullets_front" type="AnimatedSprite2D" parent="BodyParts/multi_bullets_front"]
+z_index = -1
+position = Vector2(0.5, -0.5)
+scale = Vector2(1.06653, 0.594362)
+sprite_frames = SubResource("SpriteFrames_ojg6l")
+autoplay = "default"
+frame_progress = 0.980957
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyParts/multi_bullets_front"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_ydtjd")
+
+[node name="BackGun" type="Area2D" parent="BodyParts"]
+visible = false
+
+[node name="BackGun" type="Sprite2D" parent="BodyParts/BackGun"]
+position = Vector2(-7.10543e-15, 17.5)
+rotation = 3.14159
+scale = Vector2(0.462, 0.462)
+texture = ExtResource("6_gb6cs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyParts/BackGun"]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_j1hwi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_k8j5q")
+
+[node name="Shooting_point" type="Marker2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(-0.859058, 13.9072)
+
+[node name="Shooting_point_back" type="Marker2D" parent="."]
+position = Vector2(0, 17)
+scale = Vector2(-0.859058, 13.9072)
+
+[node name="Shooting_timer" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
+
+[node name="Shooting_timer_back" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="Damage_particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 500
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+linear_accel_max = 44.44
+tangential_accel_min = -36.36
+tangential_accel_max = 18.18
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_7jk10")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="health_prog_bar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -26.0
+offset_top = 28.5
+offset_right = 26.0
+offset_bottom = 31.5
+theme_override_styles/background = SubResource("StyleBoxFlat_r85rv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nwqdh")
+step = 0.0
+value = 60.0
+show_percentage = false
+
+[node name="bullet_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_36n3f")
+bus = &"SFX"
+
+[node name="bullet_sound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_yyute")
+max_polyphony = 3
+bus = &"SFX"
+
+[connection signal="body_entered" from="BodyParts/BackGun" to="." method="_on_back_gun_body_entered"]
+[connection signal="timeout" from="Shooting_timer" to="." method="_on_shooting_timer_timeout"]
+[connection signal="timeout" from="Shooting_timer_back" to="." method="_on_shooting_timer_back_timeout"]

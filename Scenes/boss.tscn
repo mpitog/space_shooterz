@@ -1,0 +1,173 @@
+[gd_scene load_steps=16 format=3 uid="uid://c2ing83i6461t"]
+
+[ext_resource type="Texture2D" uid="uid://bac6lwifps8ty" path="res://Sprites/Enemies/boss_ph.png" id="1_djgmw"]
+[ext_resource type="Script" path="res://Scripts/boss_1_phobos.gd" id="1_q4xtt"]
+[ext_resource type="Texture2D" uid="uid://b62x4y8cmoh6c" path="res://Sprites/Main Ship - Shields/PNGs/Main Ship - Shields - Front and Side Shield.png" id="3_0fb5b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86vyp"]
+radius = 352.172
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6koat"]
+radius = 61.0
+height = 142.0
+
+[sub_resource type="Curve" id="Curve_12rpv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.021978), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2157g"]
+offsets = PackedFloat32Array(0, 0.145833, 0.645833)
+colors = PackedColorArray(0.539863, 1.03481e-06, 2.88785e-07, 1, 1, 0.619608, 0.243137, 1, 1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hnov"]
+radius = 6.5555
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6pfk"]
+atlas = ExtResource("3_0fb5b")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqtda"]
+atlas = ExtResource("3_0fb5b")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqqmk"]
+atlas = ExtResource("3_0fb5b")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u23s"]
+atlas = ExtResource("3_0fb5b")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl3an"]
+atlas = ExtResource("3_0fb5b")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tuw4"]
+atlas = ExtResource("3_0fb5b")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bc0h4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6pfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqtda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqqmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u23s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl3an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tuw4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Boss" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_q4xtt")
+
+[node name="boss" type="Sprite2D" parent="."]
+texture = ExtResource("1_djgmw")
+
+[node name="bullet_detection" type="Area2D" parent="." groups=["detection"]]
+
+[node name="Detection" type="CollisionShape2D" parent="bullet_detection"]
+visible = false
+shape = SubResource("CircleShape2D_86vyp")
+debug_color = Color(0.94074, 0.101098, 0.551805, 0.42)
+
+[node name="boss_detection_body" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_6koat")
+
+[node name="Shooter_left" type="Marker2D" parent="."]
+position = Vector2(-54, 38)
+
+[node name="Shooter_right" type="Marker2D" parent="."]
+position = Vector2(55, 38)
+
+[node name="Cooldown_timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="cycle_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="boss_explosion" type="CPUParticles2D" parent="."]
+position = Vector2(0, 1)
+emitting = false
+amount = 400
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.38
+emission_shape = 1
+emission_sphere_radius = 24.22
+gravity = Vector2(0, -40)
+angular_velocity_max = 410.0
+linear_accel_max = 42.93
+radial_accel_min = -22.22
+radial_accel_max = 100.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_12rpv")
+color_ramp = SubResource("Gradient_2157g")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="boss_destroyed" type="CPUParticles2D" parent="."]
+position = Vector2(0, 42)
+emitting = false
+amount = 1500
+lifetime = 5.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.38
+emission_shape = 1
+emission_sphere_radius = 24.22
+spread = 180.0
+gravity = Vector2(0, -50)
+angular_velocity_max = 410.0
+linear_accel_max = 42.93
+radial_accel_min = -22.22
+radial_accel_max = 100.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_12rpv")
+color_ramp = SubResource("Gradient_2157g")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="shield_area" type="Area2D" parent="." groups=["shield_area"]]
+visible = false
+rotation = 3.14159
+scale = Vector2(8.44045, 8.44045)
+
+[node name="shield2" type="CollisionShape2D" parent="shield_area"]
+scale = Vector2(3.56538, 2.89703)
+shape = SubResource("CircleShape2D_1hnov")
+debug_color = Color(0.635319, 0.527186, 0, 0.42)
+
+[node name="shield" type="AnimatedSprite2D" parent="shield_area"]
+modulate = Color(1, 1, 1, 0.415686)
+sprite_frames = SubResource("SpriteFrames_bc0h4")
+frame = 2
+frame_progress = 0.38604
+
+[connection signal="area_entered" from="." to="." method="_on_area_boss_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="bullet_detection" to="." method="_on_bullet_detection_area_entered"]
+[connection signal="body_entered" from="bullet_detection" to="." method="_on_bullet_detection_body_entered"]
+[connection signal="timeout" from="Cooldown_timer" to="." method="_on_cooldown_timer_timeout"]

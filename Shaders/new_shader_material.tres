@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dm6n41j5270xl"]
+
+[ext_resource type="Shader" path="res://Shaders/new_shader_material.gdshader" id="1_x4awr"]
+
+[resource]
+shader = ExtResource("1_x4awr")
+shader_parameter/colour1 = null
+shader_parameter/colour2 = null
+shader_parameter/gradientType = null
+shader_parameter/proportion = null
+shader_parameter/noise = null
+shader_parameter/clipAlpha = false
+shader_parameter/clipThreshold = null

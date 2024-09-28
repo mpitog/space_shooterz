@@ -1,0 +1,40 @@
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://71qrmxsekejn"]
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_jjpmd"]
+resource_name = "Phaser"
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_dtr5o"]
+resource_name = "PitchShift"
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_h276f"]
+resource_name = "Delay"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_ufdwb"]
+resource_name = "Compressor"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_fml10"]
+resource_name = "Amplify"
+
+[resource]
+bus/1/name = &"SFX"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -2.70802
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectPhaser_jjpmd")
+bus/1/effect/0/enabled = false
+bus/1/effect/1/effect = SubResource("AudioEffectPitchShift_dtr5o")
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource("AudioEffectDelay_h276f")
+bus/1/effect/2/enabled = false
+bus/1/effect/3/effect = SubResource("AudioEffectCompressor_ufdwb")
+bus/1/effect/3/enabled = false
+bus/1/effect/4/effect = SubResource("AudioEffectAmplify_fml10")
+bus/1/effect/4/enabled = false
+bus/2/name = &"Music"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 3.04474
+bus/2/send = &"Master"
