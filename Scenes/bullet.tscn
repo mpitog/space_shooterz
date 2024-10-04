@@ -18,5 +18,5 @@ shape = SubResource("CircleShape2D_3vmtq")
 [node name="bullet_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_4v50r")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_entered" from="." to="." method="_on_area_entered_boss_shield"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
