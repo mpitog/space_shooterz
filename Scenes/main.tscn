@@ -75,9 +75,9 @@ distance = -247.0
 
 [sub_resource type="Curve2D" id="Curve2D_piwl1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 259.088, -649.133, 0, 0, 0, 0, 45.4245, -583.752, 66.0746, 2.66968, -66.0746, -2.66968, -242, -590, 0, 0, 0, 0, -440.785, -660.029)
+"points": PackedVector2Array(0, 0, 0, 0, 259.088, -649.133, 0, 0, 0, 0, 147.35, -610.629, 0, 0, 0, 0, 45.4245, -583.752, 0, 0, 0, 0, -27.6054, -547.949, 66.0746, 2.66968, -66.0746, -2.66968, -242, -590, 0, 0, 0, 0, -651.857, -563.515)
 }
-point_count = 4
+point_count = 6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mh1v3"]
 size = Vector2(152.5, 113.5)
@@ -338,14 +338,14 @@ autostart = true
 [node name="Paths" type="Node2D" parent="."]
 
 [node name="Enemy_Path2D" type="Path2D" parent="Paths"]
-position = Vector2(242.711, 309)
-scale = Vector2(0.360065, 0.642396)
+position = Vector2(289.94, 309)
+scale = Vector2(0.432518, 0.642396)
 curve = SubResource("Curve2D_piwl1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/Enemy_Path2D"]
 unique_name_in_owner = true
 position = Vector2(259.088, -649.133)
-rotation = 2.84464
+rotation = 2.80974
 
 [node name="Spaceship" parent="." instance=ExtResource("3_8r7bl")]
 position = Vector2(192, 1016)
